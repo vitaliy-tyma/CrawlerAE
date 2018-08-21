@@ -1,0 +1,27 @@
+package crawlerAE;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+
+
+public class crawlerAE {
+    public static void main(String[] args) {
+
+    	String url = "https://agileengine.bitbucket.io/beKIvpUlPMtzhfAy/samples/sample-0-origin.html";
+//    	String url = "https://agileengine.bitbucket.io/beKIvpUlPMtzhfAy/samples/sample-1-evil-gemini.html";
+//    	String url = "https://agileengine.bitbucket.io/beKIvpUlPMtzhfAy/samples/sample-2-container-and-clone.html";
+//    	String url = "https://agileengine.bitbucket.io/beKIvpUlPMtzhfAy/samples/sample-3-the-escape.html";
+//    	String url = "https://agileengine.bitbucket.io/beKIvpUlPMtzhfAy/samples/sample-4-the-mash.html";
+    	
+    	try {
+            Document document = Jsoup.connect(url).get();
+            Element make_button = document.select("Make everything OK").text();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }        
+
+        System.out.println(make_button.xpath());
+    }
+}
